@@ -135,7 +135,8 @@
     timer = global.setTimeout(function () {
       let headings = document.querySelectorAll(options.headingClass);
 
-      for (const heading of headings) {
+      for (let i = 0, { length } = headings; i < length; i++) {
+        const heading = headings[i];
         let container = heading.closest(options.containerClass);
 
         if (container) {
