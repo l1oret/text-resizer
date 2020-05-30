@@ -19,22 +19,29 @@
       this.heading = heading;
       this.max = max;
       this.min = min;
-      this.fontSize = this.getFontSize();
+      this.fontSize = this.getHeadingFontSize();
 
       return this;
     },
 
     /**
-     * Get the heading's font-size
-     * @returns {void}
+     * Get heading font-size
+     * @returns {number}
      */
-    getFontSize() {
+    getHeadingFontSize() {
       var style = window.getComputedStyle(this.heading, null);
       return Math.round(parseFloat(style.getPropertyValue('font-size')));
     },
 
     /**
-     * Resize the heading until fit into its container
+     * Set heading font-size
+     */
+    setHeadingFontSize() {
+      this.heading.style.fontSize = `${this.fontSize}px`;
+    },
+
+    /**
+     * Resize heading until fit into its container
      * @returns {void}
      */
     resize: function () {
@@ -53,12 +60,12 @@
   const Increase = Object.create(Resizer);
 
   /**
-   * Set the heading font-size style
+   * Set heading font-size style
    * @returns {void}
    */
   Increase.updateFont = function () {
     this.fontSize++;
-    this.heading.style.fontSize = `${this.fontSize}px`;
+    this.setHeadingFontSize();
   };
 
   /**
@@ -80,12 +87,12 @@
   const Decrease = Object.create(Resizer);
 
   /**
-   * Set the heading font-size style
+   * Set heading font-size style
    * @returns {void}
    */
   Decrease.updateFont = function () {
     this.fontSize--;
-    this.heading.style.fontSize = `${this.fontSize}px`;
+    this.setHeadingFontSize();
   };
 
   /**
