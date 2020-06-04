@@ -29,7 +29,7 @@
      * @returns {number}
      */
     getHeadingFontSize() {
-      var style = window.getComputedStyle(this.heading, null);
+      var style = global.getComputedStyle(this.heading, null);
       return Math.round(parseFloat(style.getPropertyValue('font-size')));
     },
 
