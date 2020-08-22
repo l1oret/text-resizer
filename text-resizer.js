@@ -14,7 +14,7 @@
      * @param {number} max
      * @returns {Resizer}
      */
-    init: function (heading, containerWidth, min, max) {
+    init(heading, containerWidth, min, max) {
       this.containerWidth = containerWidth;
       this.heading = heading;
       this.max = max;
@@ -44,7 +44,7 @@
      * Resize heading until fit into its container
      * @returns {void}
      */
-    resize: function () {
+    resize() {
       this.updateFont();
 
       if (this.isResizable()) {
